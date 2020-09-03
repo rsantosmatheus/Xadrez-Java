@@ -29,7 +29,7 @@ public class Board {
 		return pieces[row][column];
 	}
 	
-	public Piece piece (Position position) {
+	public Piece piece(Position position){
 		if(!positionExists(position)) {
 			throw new BoardException("Posição fora do tabuleiro");
 		}
@@ -55,11 +55,9 @@ public class Board {
 		pieces[position.getRow()][position.getColumn()] = null;
 		return aux;
 	}
-	
-	
-	
+
 	public boolean positionExists(int row, int column) {
-		return row >= 0 && row <= rows && column >=0 && column <= columns;
+		return row >= 0 && row < rows && column >=0 && column < columns;
 	}
 	
 	public boolean positionExists(Position position) {
@@ -70,6 +68,6 @@ public class Board {
 		if(!positionExists(position)) {
 			throw new BoardException("Posição fora do tabuleiro");
 		}
-		return piece(position)!= null;
+		return piece(position) != null;
 	}
 }

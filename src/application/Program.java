@@ -18,11 +18,13 @@ public class Program {
 				UI.clearScreen();
 				UI.printBoard(chessMatch.getPieces());
 				System.out.println();
-				System.out.println("Digite a origem da peça: ");
+				System.out.print("Origem: ");
 				ChessPosition source = UI.readChessPosition(sc);
-				System.out.println("Digite o destino da peça: ");
+
+				System.out.println();
+				System.out.print("Destino: ");
 				ChessPosition target = UI.readChessPosition(sc);
-	
+
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 			}
 			catch (ChessException e) {
