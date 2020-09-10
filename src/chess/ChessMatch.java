@@ -8,6 +8,7 @@ import boardGame.Board;
 import boardGame.Piece;
 import boardGame.Position;
 import chess.pieces.King;
+import chess.pieces.Peao;
 import chess.pieces.Torre;
 
 public class ChessMatch {
@@ -71,7 +72,7 @@ public class ChessMatch {
 		
 		if (testCheck(currentPlayer)) {
 			undoMove(source, target, capturedPiece);
-			throw new ChessException("You can't put yourself in check");
+			throw new ChessException("Voce nao pode se por em check");
 		}
 		
 		check = (testCheck(opponent(currentPlayer))) ? true : false;
@@ -87,7 +88,8 @@ public class ChessMatch {
 	}
 	
 	private Piece makeMove(Position source, Position target) {
-		Piece p = board.removePiece(source);
+		ChessPiece p = (ChessPiece)board.removePiece(source);
+		p.increaseMoveCount();
 		Piece capturedPiece = board.removePiece(target);
 		board.placePiece(p, target);
 		
@@ -100,7 +102,8 @@ public class ChessMatch {
 	}
 	
 	private void undoMove(Position source, Position target, Piece capturedPiece) {
-		Piece p = board.removePiece(target);
+		ChessPiece p = (ChessPiece)board.removePiece(target);
+		p.decreaseMoveCount();
 		board.placePiece(p, source);
 		
 		if (capturedPiece != null) {
@@ -112,19 +115,19 @@ public class ChessMatch {
 	
 	private void validateSourcePosition(Position position) {
 		if (!board.thereIsAPiece(position)) {
-			throw new ChessException("Não há peças na posição escolhida");
+			throw new ChessException("Nao ha pecas na posicao escolhida");
 		}
 		if(currentPlayer != ((ChessPiece) board.piece(position)).getColor()){
-			throw new ChessException("Esta peça escolhida não é sua");
+			throw new ChessException("A peca escolhida nao e sua");
 		}
 		if (!board.piece(position).isThereAnyPossibleMove()) {
-			throw new ChessException("Não há movimentos possíveis para esta peça");
+			throw new ChessException("Nao ha movimentos possiveis para esta peca");
 		}
 	}
 	
 	private void validateTargetPosition(Position source, Position target) {
 		if (!board.piece(source).possibleMove(target)) {
-			throw new ChessException("A peça escolhida não pode se mover para esta posição");
+			throw new ChessException("A peaa escolhida nao pode se mover para este lugar");
 		}
 	}
 	
@@ -144,7 +147,7 @@ public class ChessMatch {
 				return (ChessPiece)p;
 			}
 		}
-		throw new IllegalStateException("There is no " + color + " king on the board");
+		throw new IllegalStateException("ERRO FATAL! Nao há rei " + color + " no jogo");
 	}
 	
 	private boolean testCheck(Color color) {
@@ -190,12 +193,30 @@ public class ChessMatch {
 	}
 	
 	private void initialSetup() {
-		placeNewPiece('h', 7, new Torre(board, Color.BRANCO));
-        placeNewPiece('d', 1, new Torre(board, Color.BRANCO));
+		placeNewPiece('a', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('b', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('c', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('d', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('e', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('f', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('g', 2, new Peao(board, Color.BRANCO));
+		placeNewPiece('h', 2, new Peao(board, Color.BRANCO));
+		
+		placeNewPiece('h', 1, new Torre(board, Color.BRANCO));
+		placeNewPiece('a', 1, new Torre(board, Color.BRANCO));
         placeNewPiece('e', 1, new King(board, Color.BRANCO));
 
-;
-        placeNewPiece('b', 8, new Torre(board, Color.ROXO));
-        placeNewPiece('a', 8, new King(board, Color.ROXO));
+		placeNewPiece('a', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('b', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('c', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('d', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('e', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('f', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('g', 7, new Peao(board, Color.ROXO));
+		placeNewPiece('h', 7, new Peao(board, Color.ROXO));
+        
+        placeNewPiece('h', 8, new Torre(board, Color.ROXO));
+        placeNewPiece('a', 8, new Torre(board, Color.ROXO));
+        placeNewPiece('d', 8, new King(board, Color.ROXO));
 	}
 }
