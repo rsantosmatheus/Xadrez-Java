@@ -8,6 +8,7 @@ import boardGame.Board;
 import boardGame.Piece;
 import boardGame.Position;
 import chess.pieces.Bispo;
+import chess.pieces.Cavalo;
 import chess.pieces.King;
 import chess.pieces.Peao;
 import chess.pieces.Torre;
@@ -203,12 +204,17 @@ public class ChessMatch {
 		placeNewPiece('g', 2, new Peao(board, Color.BRANCO));
 		placeNewPiece('h', 2, new Peao(board, Color.BRANCO));
 		
-		placeNewPiece('h', 1, new Torre(board, Color.BRANCO));
-		placeNewPiece('a', 1, new Torre(board, Color.BRANCO));
-		placeNewPiece('c', 1, new Bispo(board, Color.BRANCO));
-		placeNewPiece('f', 1, new Bispo(board, Color.BRANCO));
 		
-        placeNewPiece('e', 1, new King(board, Color.BRANCO));
+		placeNewPiece('a', 1, new Torre(board, Color.BRANCO));
+		placeNewPiece('b', 1, new Cavalo(board, Color.BRANCO));
+		placeNewPiece('c', 1, new Bispo(board, Color.BRANCO));
+		
+		placeNewPiece('e', 1, new King(board, Color.BRANCO));
+		placeNewPiece('f', 1, new Bispo(board, Color.BRANCO));
+		placeNewPiece('g', 1, new Cavalo(board, Color.BRANCO));
+		placeNewPiece('h', 1, new Torre(board, Color.BRANCO));
+		
+
 
 		placeNewPiece('a', 7, new Peao(board, Color.ROXO));
 		placeNewPiece('b', 7, new Peao(board, Color.ROXO));
@@ -218,11 +224,16 @@ public class ChessMatch {
 		placeNewPiece('f', 7, new Peao(board, Color.ROXO));
 		placeNewPiece('g', 7, new Peao(board, Color.ROXO));
 		placeNewPiece('h', 7, new Peao(board, Color.ROXO));
-        
-        placeNewPiece('h', 8, new Torre(board, Color.ROXO));
-        placeNewPiece('a', 8, new Torre(board, Color.ROXO));
-        placeNewPiece('e', 8, new King(board, Color.ROXO));
+		
+		placeNewPiece('a', 8, new Torre(board, Color.ROXO));
+		placeNewPiece('b', 8, new Cavalo(board, Color.ROXO));
 		placeNewPiece('c', 8, new Bispo(board, Color.ROXO));
+		
+		placeNewPiece('e', 8, new King(board, Color.ROXO));
 		placeNewPiece('f', 8, new Bispo(board, Color.ROXO));
+		placeNewPiece('g', 8, new Cavalo(board, Color.ROXO));
+		placeNewPiece('h', 8, new Torre(board, Color.ROXO));
+        
+
 	}
 }
