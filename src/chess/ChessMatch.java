@@ -11,6 +11,7 @@ import chess.pieces.Bispo;
 import chess.pieces.Cavalo;
 import chess.pieces.King;
 import chess.pieces.Peao;
+import chess.pieces.Rainha;
 import chess.pieces.Torre;
 
 public class ChessMatch {
@@ -208,7 +209,7 @@ public class ChessMatch {
 		placeNewPiece('a', 1, new Torre(board, Color.BRANCO));
 		placeNewPiece('b', 1, new Cavalo(board, Color.BRANCO));
 		placeNewPiece('c', 1, new Bispo(board, Color.BRANCO));
-		
+		placeNewPiece('d', 1, new Rainha(board, Color.BRANCO));
 		placeNewPiece('e', 1, new King(board, Color.BRANCO));
 		placeNewPiece('f', 1, new Bispo(board, Color.BRANCO));
 		placeNewPiece('g', 1, new Cavalo(board, Color.BRANCO));
@@ -228,7 +229,7 @@ public class ChessMatch {
 		placeNewPiece('a', 8, new Torre(board, Color.ROXO));
 		placeNewPiece('b', 8, new Cavalo(board, Color.ROXO));
 		placeNewPiece('c', 8, new Bispo(board, Color.ROXO));
-		
+		placeNewPiece('d', 8, new Rainha(board, Color.ROXO));
 		placeNewPiece('e', 8, new King(board, Color.ROXO));
 		placeNewPiece('f', 8, new Bispo(board, Color.ROXO));
 		placeNewPiece('g', 8, new Cavalo(board, Color.ROXO));
