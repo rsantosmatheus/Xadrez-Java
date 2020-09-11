@@ -1,5 +1,6 @@
 package application;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -40,7 +41,11 @@ public class Program {
 				}
 				if(chessMatch.getPromoted() != null) {
 					System.out.println("Digite a peca para promocao ( T / C / B / Q ) :");
-					String type = sc.nextLine();
+					String type = sc.nextLine().toUpperCase();
+					while (!type.equals("T") && !type.equals("C") && !type.equals("B") && !type.equals("Q")) {
+						System.out.println("Valor da peca invalido. Opcoes validas ( T / C / B / Q ) ");
+						type = sc.nextLine().toUpperCase();
+					}
 					chessMatch.replacePromotedPiece(type);
 					
 				}
