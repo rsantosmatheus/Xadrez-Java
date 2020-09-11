@@ -47,7 +47,7 @@ public class UI {
 			int row = Integer.parseInt(s.substring(1));
 			return new ChessPosition(column, row);
 		} catch (RuntimeException e) {
-			throw new InputMismatchException("Erro ao ler posição do xadrez. Posições válidas são de a1 à h8 ");
+			throw new InputMismatchException("Erro ao ler posicaoo do xadrez. Posicoes validas sao de a1 à h8 ");
 		}
 	}
 	
@@ -86,7 +86,7 @@ public class UI {
 	}
 	
 	public static void printBoard(ChessPiece[][] pieces, boolean [][] possibleMoves) {
-		System.out.println("MRS CHESS MATCH");
+		System.out.println("MRS PARTIDA DE XADREZ");
 		System.out.println();
 		System.out.println("  a b c d e f g h");
 		for (int i = 0; i < pieces.length; i++) {
@@ -120,8 +120,8 @@ public class UI {
 	private static void printCapturedPieces (List<ChessPiece> captured){
 		List<ChessPiece> white = captured.stream().filter(x -> x.getColor() == Color.BRANCO).collect(Collectors.toList());
 		List<ChessPiece> roxo = captured.stream().filter(x -> x.getColor() == Color.ROXO).collect(Collectors.toList());
-		System.out.println("--Peças capturadas--");
-		System.out.println("Brancas capturadas: ");
+	
+		System.out.println("--------------------");
 		System.out.print(ANSI_WHITE);
 		System.out.println(Arrays.toString(white.toArray()));
 		System.out.print(ANSI_RESET);
